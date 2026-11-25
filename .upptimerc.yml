@@ -1,7 +1,8 @@
 # QWED status: https://status.qwedai.tech
-# Upptime checks each service every 5 minutes from GitHub Actions. When one
-# stops answering, it opens an issue in this repository, and the issue closes
-# itself when the service is back. See https://upptime.js.org/docs/configuration
+# Upptime checks each service from GitHub Actions on a 5-minute schedule
+# (GitHub often starts a run a few minutes late). When one stops answering,
+# it opens an issue in this repository, and the issue closes itself when the
+# service is back. See https://upptime.js.org/docs/configuration
 owner: QWED-AI
 repo: status
 
@@ -33,9 +34,13 @@ assignees:
 status-website:
   cname: status.qwedai.tech
   logoUrl: https://qwedai.tech/favicon.svg
+  # Our own theme (assets/qwed.css): qwedai.tech colours and Geist, light or dark by system setting.
+  themeUrl: https://status.qwedai.tech/qwed.css
+  favicon: https://qwedai.tech/apple-touch-icon.png
+  faviconSvg: https://qwedai.tech/favicon.svg
   name: QWED status
   introTitle: "Status of QWED Security and the qwedai.tech sites"
-  introMessage: Each service is checked every 5 minutes. When one stops answering, an incident opens here and closes when it is back. QWED Security is the GitHub App that checks pull requests; the others are this website, its documentation and the dashboard preview.
+  introMessage: Each service is checked on a 5-minute schedule; GitHub often starts a check a few minutes late. When one stops answering, an incident opens here and closes when it is back. QWED Security is the GitHub App that checks pull requests; the others are this website, its documentation and the dashboard preview.
   navbar:
     - title: Status
       href: /
