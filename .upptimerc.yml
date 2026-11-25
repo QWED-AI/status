@@ -18,6 +18,10 @@ sites:
     url: https://docs.qwedai.tech
   - name: Dashboard preview
     url: https://demo.qwedai.tech
+  # TEMPORARY (25 Nov 2026): a test outage for QweD-frontend #165. This address
+  # returns 404, so the check fails and opens an incident. Removed right after.
+  - name: Test outage
+    url: https://qwedai.tech/status-page-test-outage
 
 # Who is assigned a new incident.
 assignees:
