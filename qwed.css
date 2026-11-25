@@ -1,0 +1,202 @@
+/*
+ * QWED theme for status.qwedai.tech, loaded through `themeUrl` in .upptimerc.yml.
+ * Colours, type and corners follow qwedai.tech (src/styles/lab.css in
+ * QWED-AI/QweD-frontend). Light or dark follows the visitor's system setting.
+ *
+ * Upptime loads global.css after this file, so rules here are one step more
+ * specific than its plain element rules (`body article`, not `article`).
+ * !important is used only where Upptime's component styles are scoped with
+ * hashed classes this file can't name.
+ *
+ * Fonts: Geist and Geist Mono (SIL Open Font License 1.1, see OFL-Geist.txt),
+ * copied here so the page loads nothing from a font service.
+ */
+
+@font-face {
+  font-family: 'Geist Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(geist.woff2) format('woff2-variations'), url(geist.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Geist Mono Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url(geist-mono.woff2) format('woff2-variations'), url(geist-mono.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+/* Metric-matched fallbacks, as on qwedai.tech, so the swap doesn't shift the page. */
+@font-face { font-family: 'Geist Fallback'; src: local('Arial'), local('ArialMT'), local('Liberation Sans'), local('Arimo'); size-adjust: 103.73%; ascent-override: 96.88%; descent-override: 28.44%; line-gap-override: 0%; }
+@font-face { font-family: 'Geist Mono Fallback'; src: local('Courier New'), local('CourierNewPSMT'), local('Liberation Mono'), local('Cousine'); size-adjust: 100%; ascent-override: 100.52%; descent-override: 29.5%; line-gap-override: 0%; }
+
+:root {
+  color-scheme: light;
+  --sans: 'Geist Variable', 'Geist Fallback', system-ui, sans-serif;
+  --mono: 'Geist Mono Variable', 'Geist Mono Fallback', ui-monospace, monospace;
+
+  /* qwedai.tech tokens */
+  --bg: #ffffff;
+  --paper: #ffffff;
+  --ink: #141414;
+  --ink-2: #4a4a46;
+  --grey: #6b6b66;
+  --rail: #e4e4df;
+  --panel: #efeeea;
+  --acc: #b83f16;
+  /* Status colours. Down is a crimson, kept apart from the orange-red accent;
+     every state is also written out ("Up", "Down"), never shown by colour alone. */
+  --ok: #136b4f;
+  --warn: #8a5a00;
+  --bad: #b3122e;
+  --on-status: #ffffff;
+  --bad-bg: #fbe9ec;
+  --changed-bg: #f6e7c8;
+
+  /* Upptime's theme variables */
+  --body-background-color: var(--bg);
+  --body-text-color: var(--ink);
+  --card-background-color: var(--paper);
+  --card-border-color: var(--rail);
+  --nav-background-color: var(--bg);
+  --nav-border-bottom-color: var(--rail);
+  --nav-current-border-bottom-color: var(--acc);
+  --up-border-left-color: var(--ok);
+  --degraded-border-left-color: var(--warn);
+  --down-border-left-color: var(--bad);
+  --down-background-color: var(--bad-bg);
+  --tag-color: var(--on-status);
+  --tag-up-background-color: var(--ok);
+  --tag-degraded-background-color: var(--warn);
+  --tag-down-background-color: var(--bad);
+  --change-background-color: var(--changed-bg);
+  --error-button-border-color: var(--acc);
+  --error-button-background-color: var(--acc);
+  --error-button-color: #ffffff;
+  --submit-button-border-color: var(--acc);
+  --submit-button-background-color: var(--acc);
+  --submit-button-color: #ffffff;
+  --code-color: var(--ink);
+  --code-background-color: var(--panel);
+  --graph-opacity: 1;
+  --graph-filter: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --bg: #0f1110;
+    --paper: #151716;
+    --ink: #f1f1ee;
+    --ink-2: #bdbdb7;
+    --grey: #8d8d86;
+    --rail: #26282a;
+    --panel: #1a1c1b;
+    --acc: #e46a3f;
+    --ok: #6fd2ac;
+    --warn: #f0b85a;
+    --bad: #ff8a9a;
+    --on-status: #0f1110;
+    --bad-bg: #2a1418;
+    --changed-bg: #3a2f16;
+    --error-button-color: #0f1110;
+    --submit-button-color: #0f1110;
+  }
+}
+
+/* Page */
+body {
+  font: 400 1rem/1.55 var(--sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: break-word;
+}
+body .container { max-width: 880px; padding: 0 1.5rem; }
+body a { color: var(--acc); text-underline-offset: 0.18em; }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 2px; }
+
+/* Bar */
+body nav { font-weight: 400 !important; margin-bottom: 2.5rem !important; padding: 0 !important; }
+body nav .logo { color: var(--ink); font-weight: 600 !important; letter-spacing: -0.01em; margin-right: 1rem !important; }
+body nav .logo img { height: 1.75rem !important; margin-right: 0.625rem !important; border-radius: 0 !important; }
+body nav ul a { color: var(--grey); padding: 1.25rem 0.875rem !important; font-size: 0.9375rem; }
+body nav ul a:hover,
+body nav ul a[aria-current] { color: var(--ink); }
+body [aria-current] { border-bottom-width: 2px; }
+
+/* Heading and intro */
+body header h1 {
+  font-size: clamp(1.875rem, 5vw, 2.75rem);
+  font-weight: 500;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+body header p.lead { font-size: 1.0625rem !important; color: var(--ink-2); max-width: 64ch; }
+body h2 { font-weight: 500; letter-spacing: -0.02em; }
+body h3 { opacity: 1; color: var(--grey); font-weight: 500; }
+body h4 { font-weight: 600; }
+
+/* Cards */
+body article { border-radius: 6px; padding: 1rem 1.25rem; }
+body article + article { margin-top: 0.625rem; }
+body article.up,
+body article.down,
+body article.degraded { border-left-width: 3px; }
+body article h4 a { color: var(--ink); }
+body article h4 a:hover { color: var(--acc); }
+body article > div { color: var(--ink-2); }
+body .data { font-family: var(--mono); font-size: 0.875rem; color: var(--ink); }
+
+/* Response-time graphs are teal pictures; draw them grey and faint, like the site's rails. */
+body article.graph { background-image: none !important; z-index: 0; overflow: hidden; }
+body article.graph::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: var(--background);
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-size: contain;
+  filter: grayscale(1);
+  opacity: 0.22;
+  pointer-events: none;
+}
+@media (prefers-color-scheme: dark) {
+  body article.graph::before { filter: grayscale(1) invert(1); opacity: 0.16; }
+}
+
+/* Labels: Up, Down, Open, Closed */
+body .tag {
+  font: 500 0.6875rem/1.3 var(--mono);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+}
+
+/* 24h / 7d / 30d / 1y / all */
+body form.r label { font: 400 0.8125rem var(--mono); color: var(--grey); cursor: pointer; margin-left: 0.875rem !important; }
+body form.r input:checked + label { color: var(--acc); font-weight: 600 !important; }
+
+body code { font-family: var(--mono); font-size: 0.875em; padding: 0.1em 0.3em; border-radius: 4px; }
+
+/* Footer */
+body footer { opacity: 1 !important; color: var(--grey); font: 400 0.8125rem var(--mono); }
+body footer a { color: var(--grey); text-decoration: underline; }
+body footer a:hover { color: var(--acc); }
+
+/* Phones: 16px gutters, and the bar's links stay on one line next to the logo. */
+@media (max-width: 600px) {
+  body .container { padding: 0 1rem; }
+  body nav .logo div { display: none; }
+  body nav .logo { margin-right: 0.25rem !important; }
+  body nav ul a { padding: 1.125rem 0.625rem !important; }
+  body article { padding: 0.875rem 1rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body .data { transition: none !important; }
+}
