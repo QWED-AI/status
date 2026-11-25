@@ -106,8 +106,8 @@
   }
 }
 
-/* Page */
-body {
+/* Page. `html body` so global.css, which loads later, keeps Roboto off. */
+html body {
   font: 400 1rem/1.55 var(--sans);
   -webkit-font-smoothing: antialiased;
   overflow-wrap: break-word;
