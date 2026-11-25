@@ -5,19 +5,26 @@
 owner: QWED-AI
 repo: status
 
+# Each site's icon is our own favicon, so the status page doesn't ask a
+# third-party icon service (by default Upptime fetches icons from DuckDuckGo).
 sites:
   # QWED Security, the GitHub App that checks pull requests (Google Cloud Run).
   - name: QWED Security
     url: https://qwed-security-334760594829.us-central1.run.app/health
+    icon: https://qwedai.tech/favicon.svg
   # Its public signing keys, which anyone verifying a signed record fetches.
   - name: QWED Security signing keys
     url: https://qwed-security-334760594829.us-central1.run.app/.well-known/jwks.json
+    icon: https://qwedai.tech/favicon.svg
   - name: qwedai.tech
     url: https://qwedai.tech
+    icon: https://qwedai.tech/favicon.svg
   - name: Documentation
     url: https://docs.qwedai.tech
+    icon: https://qwedai.tech/favicon.svg
   - name: Dashboard preview
     url: https://demo.qwedai.tech
+    icon: https://qwedai.tech/favicon.svg
 
 # Who is assigned a new incident.
 assignees:
