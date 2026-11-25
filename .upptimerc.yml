@@ -1,31 +1,38 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# QWED status: https://status.qwedai.tech
+# Upptime checks each service every 5 minutes from GitHub Actions. When one
+# stops answering, it opens an issue in this repository, and the issue closes
+# itself when the service is back. See https://upptime.js.org/docs/configuration
+owner: QWED-AI
+repo: status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  # QWED Security, the GitHub App that checks pull requests (Google Cloud Run).
+  - name: QWED Security
+    url: https://qwed-security-334760594829.us-central1.run.app/health
+  # Its public signing keys, which anyone verifying a signed record fetches.
+  - name: QWED Security signing keys
+    url: https://qwed-security-334760594829.us-central1.run.app/.well-known/jwks.json
+  - name: qwedai.tech
+    url: https://qwedai.tech
+  - name: Documentation
+    url: https://docs.qwedai.tech
+  - name: Dashboard preview
+    url: https://demo.qwedai.tech
+
+# Who is assigned a new incident.
+assignees:
+  - rahuldass19
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  cname: status.qwedai.tech
+  logoUrl: https://qwedai.tech/favicon.svg
+  name: QWED status
+  introTitle: "Status of QWED Security and the qwedai.tech sites"
+  introMessage: Each service is checked every 5 minutes. When one stops answering, an incident opens here and closes when it is back. QWED Security is the GitHub App that checks pull requests; the others are this website, its documentation and the dashboard preview.
   navbar:
     - title: Status
       href: /
+    - title: qwedai.tech
+      href: https://qwedai.tech
     - title: GitHub
       href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
