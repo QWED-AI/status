@@ -134,6 +134,9 @@ body header h1 {
   text-wrap: balance;
 }
 body header p.lead { font-size: 1.0625rem !important; color: var(--ink-2); max-width: 64ch; }
+/* A service page's heading links to the service; keep it ink, like headings on qwedai.tech. */
+body h1 a { color: var(--ink); text-decoration: none; }
+body h1 a:hover { color: var(--acc); }
 body h2 { font-weight: 500; letter-spacing: -0.02em; }
 body h3 { opacity: 1; color: var(--grey); font-weight: 500; }
 body h4 { font-weight: 600; }
